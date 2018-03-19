@@ -1,2 +1,2 @@
-# java-spring-helloworld
-Java Spring Helloworld app
+# Bookservice API
+Java Spring tutorial app
