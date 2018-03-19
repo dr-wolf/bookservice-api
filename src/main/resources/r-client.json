@@ -1,0 +1,247 @@
+{
+  "front-version": "2.16.0",
+  "version": 3,
+  "nodes": [
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:7000",
+        "path": "/book"
+      },
+      "id": "d72cf2e3-8b76-46cc-8d04-be88e9751778",
+      "lastModified": "2018-03-19T21:59:41.317+02:00",
+      "name": "all",
+      "headers": [],
+      "metaInfo": {
+        "ownerId": null
+      }
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "encoded": true,
+              "name": "author",
+              "value": "Stephenie%20Meyer"
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:7000",
+        "path": "/book"
+      },
+      "id": "84ecc9d2-0729-4189-a154-11480ff98408",
+      "lastModified": "2018-03-19T22:20:21.251+02:00",
+      "name": "all_author",
+      "headers": [],
+      "metaInfo": {}
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.1",
+        "name": "GET"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": [
+            {
+              "enabled": true,
+              "name": "title",
+              "value": "The"
+            },
+            {
+              "enabled": true,
+              "name": "year",
+              "value": "1937"
+            }
+          ]
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:7000",
+        "path": "/book"
+      },
+      "id": "e05862f7-3bd0-42ac-8d1b-b96aa9674cb8",
+      "lastModified": "2018-03-19T22:21:04.349+02:00",
+      "name": "all_title_year",
+      "headers": [],
+      "metaInfo": {}
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"title\": \"New Moon\",\n  \"author\": \"Stephenie Meyer\",\n  \"year\": 2006\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:7000",
+        "path": "/book"
+      },
+      "id": "eca295fc-d126-468d-be9b-5855b3e27eb7",
+      "lastModified": "2018-03-19T22:23:37.182+02:00",
+      "name": "create",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {}
+    },
+    {
+      "type": "Request",
+      "method": {
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.5",
+        "name": "DELETE"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"title\": \"Breaking Dawn\",\n  \"author\": \"Stephenie Meyer\",\n  \"year\": 2006\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:7000",
+        "path": "/book/5"
+      },
+      "id": "55067cb0-3868-4223-abb1-93ebd535366b",
+      "lastModified": "2018-03-19T22:27:36.635+02:00",
+      "name": "delete",
+      "headers": [],
+      "metaInfo": {}
+    },
+    {
+      "type": "Request",
+      "method": {
+        "requestBody": true,
+        "link": "http://tools.ietf.org/html/rfc7231#section-4.3.3",
+        "name": "POST"
+      },
+      "body": {
+        "formBody": {
+          "overrideContentType": true,
+          "encoding": "application/x-www-form-urlencoded",
+          "items": []
+        },
+        "bodyType": "Text",
+        "autoSetLength": true,
+        "textBody": "{\n  \"title\": \"Breaking Dawn\",\n  \"author\": \"Stephenie Meyer\",\n  \"year\": 2006\n}"
+      },
+      "headersType": "Form",
+      "uri": {
+        "query": {
+          "delimiter": "&",
+          "items": []
+        },
+        "scheme": {
+          "name": "http",
+          "version": "V11"
+        },
+        "host": "localhost:7000",
+        "path": "/book/5"
+      },
+      "id": "e7295b52-918e-4474-b3ca-ea178c8c8be8",
+      "lastModified": "2018-03-19T22:25:17.174+02:00",
+      "name": "update",
+      "headers": [
+        {
+          "enabled": true,
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "metaInfo": {}
+    }
+  ]
+}
