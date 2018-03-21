@@ -25,9 +25,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book one(Long id) throws NotFound {
-        Optional<Book> greeting = bookRepository.findById(id);
-        if (greeting.isPresent()) {
-            return greeting.get();
+        Optional<Book> book = bookRepository.findById(id);
+        if (book.isPresent()) {
+            return book.get();
         } else {
             throw new NotFound();
         }
