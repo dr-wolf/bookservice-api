@@ -8,7 +8,7 @@ public interface BookService {
 
     public List<Book> find(String title, String author, Integer year);
 
-    public Book one(Long id);
+    public Book getById(Long id);
 
     public Book create(Book book);
 

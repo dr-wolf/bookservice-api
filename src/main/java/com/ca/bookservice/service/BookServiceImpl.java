@@ -24,7 +24,7 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book one(Long id) throws NotFound {
+    public Book getById(Long id) throws NotFound {
         Optional<Book> book = bookRepository.findById(id);
         if (book.isPresent()) {
             return book.get();
@@ -40,7 +40,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book update(Book book) throws NotFound {
-        Book oldBook = one(book.getId());
+        Book oldBook = getById(book.getId());
         oldBook.setTitle(book.getTitle());
         oldBook.setAuthor(book.getAuthor());
         oldBook.setYear(book.getYear());
@@ -49,7 +49,7 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public void delete(Long id) throws NotFound {
-        bookRepository.delete(one(id));
+        bookRepository.delete(getById(id));
     }
 
 }

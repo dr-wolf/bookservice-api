@@ -14,30 +14,30 @@ public class BookController {
     @Autowired
     private BookService bookService;
 
-    @RequestMapping(method=RequestMethod.GET, path="/book")
-    public List<Book> all(@RequestParam(required = false, name = "title") String title,
+    @RequestMapping(method=RequestMethod.GET, path="/books")
+    public List<Book> getAll(@RequestParam(required = false, name = "title") String title,
                           @RequestParam(required = false, name = "author") String author,
                           @RequestParam(required = false, name = "year") Integer year) {
         return bookService.find(title, author, year);
     }
 
-    @RequestMapping(method=RequestMethod.GET, path="/book/{id}")
-    public Book one(@PathVariable("id") Long id) {
-        return bookService.one(id);
+    @RequestMapping(method=RequestMethod.GET, path="/books/{id}")
+    public Book getById(@PathVariable("id") Long id) {
+        return bookService.getById(id);
     }
 
-    @RequestMapping(method=RequestMethod.POST, path="/book")
+    @RequestMapping(method=RequestMethod.POST, path="/books")
     public Book create(@Valid @RequestBody Book book) {
         return bookService.create(book);
     }
 
-    @RequestMapping(method=RequestMethod.POST, path="/book/{id}")
+    @RequestMapping(method=RequestMethod.POST, path="/books/{id}")
     public Book update(@Valid @RequestBody Book book, @PathVariable("id") Long id) {
         book.setId(id);
         return bookService.update(book);
     }
 
-    @RequestMapping(method=RequestMethod.DELETE, path="/book/{id}")
+    @RequestMapping(method=RequestMethod.DELETE, path="/books/{id}")
     public void delete(@PathVariable("id") Long id) {
         bookService.delete(id);
     }

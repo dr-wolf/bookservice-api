@@ -20,7 +20,7 @@ import java.util.Optional;
 public class BookServiceTest {
 
     @InjectMocks
-    private BookServiceImpl greetingService;
+    private BookServiceImpl bookService;
 
     @Mock
     private BookRepository bookRepository;
@@ -34,7 +34,7 @@ public class BookServiceTest {
     public void test_all() throws Exception {
         try {
             Mockito.when(bookRepository.findAll()).thenReturn(Arrays.asList(makeBook()));
-            List<Book> res = greetingService.find(null, null, null);
+            List<Book> res = bookService.find(null, null, null);
             Assert.assertFalse("Result shouldn't be empty", res.isEmpty());
         } catch (Exception e) {
             Assert.fail(e.getMessage());
@@ -46,7 +46,7 @@ public class BookServiceTest {
         try {
             String title = "title";
             Mockito.when(bookRepository.search(title, null, null)).thenReturn(Arrays.asList(makeBook()));
-            List<Book> res = greetingService.find(title, null, null);
+            List<Book> res = bookService.find(title, null, null);
             Assert.assertFalse("Result shouldn't be empty", res.isEmpty());
         } catch (Exception e) {
             Assert.fail(e.getMessage());
@@ -58,7 +58,7 @@ public class BookServiceTest {
         try {
             Long id = 1L;
             Mockito.when(bookRepository.findById(id)).thenReturn(Optional.of(makeBook()));
-            Book res = greetingService.one(id);
+            Book res = bookService.getById(id);
             Assert.assertNotNull("Result shouldn't be null", res);
         } catch (Exception e) {
             Assert.fail(e.getMessage());
@@ -69,7 +69,7 @@ public class BookServiceTest {
     public void test_one_NotFound() throws Exception {
         Long id = 1L;
         Mockito.when(bookRepository.findById(id)).thenReturn(Optional.empty());
-        greetingService.one(id);
+        bookService.getById(id);
     }
 
     @Test
@@ -82,7 +82,7 @@ public class BookServiceTest {
                     return invocationOnMock.getArgument(0);
                 }
             }).when(bookRepository).save(book);
-            Book res = greetingService.create(book);
+            Book res = bookService.create(book);
             Assert.assertEquals("Result shouldn't be equal to giver", book, res);
         } catch (Exception e) {
             Assert.fail(e.getMessage());
@@ -101,7 +101,7 @@ public class BookServiceTest {
                     return invocationOnMock.getArgument(0);
                 }
             }).when(bookRepository).save(book);
-            Book res = greetingService.update(makeBook(id));
+            Book res = bookService.update(makeBook(id));
             Assert.assertNotNull("Result shouldn't be null", res);
         } catch (Exception e) {
             Assert.fail(e.getMessage());
@@ -112,7 +112,7 @@ public class BookServiceTest {
     public void test_update_NotFound() throws Exception {
         Long id = 1L;
         Mockito.when(bookRepository.findById(id)).thenReturn(Optional.empty());
-        greetingService.update(makeBook(id));
+        bookService.update(makeBook(id));
     }
 
     @Test
@@ -127,7 +127,7 @@ public class BookServiceTest {
                     return invocationOnMock.getArgument(0);
                 }
             }).when(bookRepository).delete(book);
-            greetingService.delete(id);
+            bookService.delete(id);
         } catch (Exception e) {
             Assert.fail(e.getMessage());
         }
@@ -137,7 +137,7 @@ public class BookServiceTest {
     public void test_delete_NotFound() throws Exception {
         Long id = 1L;
         Mockito.when(bookRepository.findById(id)).thenReturn(Optional.empty());
-        greetingService.delete(id);
+        bookService.delete(id);
     }
 
     private Book makeBook() {
