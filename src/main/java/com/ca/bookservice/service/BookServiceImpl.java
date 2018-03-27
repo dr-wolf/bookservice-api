@@ -39,8 +39,8 @@ public class BookServiceImpl implements BookService {
     }
 
     @Override
-    public Book update(Book book) throws NotFound {
-        Book oldBook = getById(book.getId());
+    public Book update(Long id, Book book) throws NotFound {
+        Book oldBook = getById(id);
         oldBook.setTitle(book.getTitle());
         oldBook.setAuthor(book.getAuthor());
         oldBook.setYear(book.getYear());

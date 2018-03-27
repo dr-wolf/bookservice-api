@@ -12,7 +12,7 @@ public interface BookService {
 
     public Book create(Book book);
 
-    public Book update(Book book);
+    public Book update(Long id, Book book);
 
     public void delete(Long id);
 

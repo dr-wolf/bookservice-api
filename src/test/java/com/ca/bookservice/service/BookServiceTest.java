@@ -93,7 +93,7 @@ public class BookServiceTest {
     public void test_update() throws Exception {
         try {
             Long id = 1L;
-            Book book = makeBook(id);
+            Book book = makeBook();
             Mockito.when(bookRepository.findById(id)).thenReturn(Optional.of(book));
             Mockito.doAnswer(new Answer() {
                 @Override
@@ -101,7 +101,7 @@ public class BookServiceTest {
                     return invocationOnMock.getArgument(0);
                 }
             }).when(bookRepository).save(book);
-            Book res = bookService.update(makeBook(id));
+            Book res = bookService.update(id, makeBook());
             Assert.assertNotNull("Result shouldn't be null", res);
         } catch (Exception e) {
             Assert.fail(e.getMessage());
@@ -112,14 +112,14 @@ public class BookServiceTest {
     public void test_update_NotFound() throws Exception {
         Long id = 1L;
         Mockito.when(bookRepository.findById(id)).thenReturn(Optional.empty());
-        bookService.update(makeBook(id));
+        bookService.update(id, makeBook());
     }
 
     @Test
     public void test_delete() throws Exception {
         try {
             Long id = 1L;
-            Book book = makeBook(id);
+            Book book = makeBook();
             Mockito.when(bookRepository.findById(id)).thenReturn(Optional.of(book));
             Mockito.doAnswer(new Answer() {
                 @Override
@@ -144,7 +144,4 @@ public class BookServiceTest {
         return new Book("title", "author", 2018);
     }
 
-    private Book makeBook(Long id) {
-        return new Book("title", "author", 2018) {{  setId(id); }};
-    }
 }
